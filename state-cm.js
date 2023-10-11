@@ -52,6 +52,8 @@ module.exports = {
         var {host, port, address, args} = data
 
         // state save button
+        // 1st arguments: slot name
+        // 2nd arguments: stringified state object
         if (address === '/state/save' && args.length === 2) {
             try {
                 saveState(args[0].value, JSON.parse(args[1].value))
@@ -68,6 +70,7 @@ module.exports = {
         }
 
         // state load button
+        // 1st arguments: slot name
         else if (address === '/state/load') {
             loadState(args[0].value)
             // empty return to bypass the original message
@@ -75,6 +78,7 @@ module.exports = {
         }
 
         // state add button
+        // 1st arguments: slot name
         else if (address === '/state/new') {
             if (states[args[0].value]) {
                 receive('/NOTIFY', 'state name already exists !')
@@ -88,6 +92,7 @@ module.exports = {
         }
 
         // state remove button
+        // 1st arguments: slot name
         else if (address === '/state/delete') {
             if (!states[args[0].value]) {
                 receive('/NOTIFY', 'state name desn\'t exists !')
