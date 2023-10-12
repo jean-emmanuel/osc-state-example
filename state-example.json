@@ -552,7 +552,7 @@
         "ignoreDefaults": false,
         "bypass": false,
         "onCreate": "",
-        "onValue": "// get switch's values\nvar slots = getProp('slot_switch', 'values')\n\n// compute index of switch's current value\nvar index = slots.indexOf(get('slot_switch'))\n\n// increment index\n// replace '+ 1' with \"- 1\"  to decrement\n// \"% slots.length\" makes it loop when reaching the end\nvar new_index =  (index - 1 + slots.length) % slots.length\n\n// set switch value\nset('slot_switch', slots[new_index])"
+        "onValue": "// get switch's values\nvar slots = getProp('slot_switch', 'values')\n\n// compute index of switch's current value\nvar index = slots.indexOf(get('slot_switch'))\n\n// increment index\n// replace '+ 1' with \"- 1\"  to decrement\n// \"% slots.length\" makes it loop when reaching the end\nvar new_index =  (index + 1) % slots.length\n\n// set switch value\nset('slot_switch', slots[new_index])"
       },
       {
         "type": "button",
